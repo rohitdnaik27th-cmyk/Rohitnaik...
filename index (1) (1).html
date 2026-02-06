@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rohit ❤️ Sapana</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffd1dc);
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 35px;
+      border-radius: 25px;
+      box-shadow: 0px 10px 30px rgba(0,0,0,0.25);
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    h1 {
+      color: #ff005d;
+      font-size: 34px;
+      margin: 10px 0;
+    }
+
+    .from {
+      font-size: 18px;
+      color: #444;
+      margin-bottom: 15px;
+    }
+
+    .loveText {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .heartBig {
+      font-size: 65px;
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+      100% { transform: scale(1); }
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.2s;
+      font-weight: bold;
+    }
+
+    .yes {
+      background: #ff005d;
+      color: white;
+      box-shadow: 0px 5px 15px rgba(255,0,93,0.4);
+    }
+
+    .yes:hover {
+      background: #e60053;
+      transform: scale(1.05);
+    }
+
+    .no {
+      background: #555;
+      color: white;
+      position: absolute;
+    }
+
+    .music {
+      background: #ff8fab;
+      color: #fff;
+      margin-top: 10px;
+    }
+
+    .music:hover {
+      background: #ff6f91;
+      transform: scale(1.05);
+    }
+
+    #message {
+      margin-top: 18px;
+      font-size: 20px;
+      color: #ff005d;
+      font-weight: bold;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 0.9; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .popupBox {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 350px;
+      text-align: center;
+      box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .popupBox h2 {
+      color: #ff005d;
+    }
+
+    .closeBtn {
+      background: #ff005d;
+      color: white;
+      margin-top: 15px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popupBox">
+      <h2>Hey Sapana 😍💖</h2>
+      <p style="font-size:18px; color:#333;">
+        You are my favorite person 🥰 <br>
+        You make my life beautiful 🌹✨
+      </p>
+      <button class="closeBtn" onclick="closePopup()">Awww ❤️</button>
+    </div>
+  </div>
+
+  <!-- Main Card -->
+  <div class="card">
+    <div class="heartBig">❤️</div>
+    <h1>Sapana 💕</h1>
+    <div class="from">From <b>Rohit</b> 😘</div>
+
+    <div class="loveText">
+      Every moment with you feels special 💐✨ <br>
+      I don’t need a perfect day, I just need you ❤️
+    </div>
+
+    <h2 style="color:#ff005d;">Will you be my Valentine? 💝</h2>
+
+    <button class="yes" onclick="yesClick()">Yes 💖</button>
+
+    <button class="no" id="noBtn" onmouseover="moveNoButton()">No 😢</button>
+
+    <br>
+    <button class="music" onclick="playMusic()">🎶 Play Romantic Music</button>
+
+    <div id="message"></div>
+  </div>
+
+  <!-- Music -->
+  <audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    window.onload = function() {
+      document.getElementById("popup").style.display = "flex";
+      createHearts();
+
+      // Set initial No button position
+      const noBtn = document.getElementById("noBtn");
+      noBtn.style.top = "320px";
+      noBtn.style.left = "220px";
+    };
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    function yesClick() {
+      document.getElementById("message").innerHTML =
+        "Yayyyy 😍❤️ Sapana I Love You So Much 💐💖 Happy Valentine’s Day! 🥰🌹";
+    }
+
+    function playMusic() {
+      document.getElementById("bgMusic").play();
+      alert("🎶 Music started! Enjoy Sapana 💖");
+    }
+
+    // No button will run away
+    function moveNoButton() {
+      const noBtn = document.getElementById("noBtn");
+
+      const x = Math.floor(Math.random() * 250) + 30;
+      const y = Math.floor(Math.random() * 250) + 250;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    // Floating hearts generator
+    function createHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 25 + 15) + "px";
+        heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 7000);
+      }, 300);
+    }
+  </script>
+
+</body>
+</html>
