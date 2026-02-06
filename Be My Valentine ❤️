@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rohit ❤️ Sapana</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 90%;
+    }
+
+    h1 {
+      color: #ff0066;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #444;
+    }
+
+    .heart {
+      font-size: 50px;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin: 15px 10px;
+      transition: 0.3s;
+    }
+
+    .yes {
+      background-color: #ff0066;
+      color: white;
+    }
+
+    .yes:hover {
+      background-color: #e6005c;
+    }
+
+    .no {
+      background-color: #555;
+      color: white;
+    }
+
+    .no:hover {
+      background-color: #333;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #ff0066;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="heart">❤️</div>
+    <h1>Sapana 💖</h1>
+    <p>
+      From <b>Rohit</b> 😍 <br><br>
+      You are the most special part of my life 💐✨ <br>
+      I feel lucky to have you ❤️
+    </p>
+
+    <h2>Will you be my Valentine? 💝</h2>
+
+    <button class="yes" onclick="yesClick()">Yes 💕</button>
+    <button class="no" onclick="noClick()">No 😢</button>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    function yesClick() {
+      document.getElementById("message").innerHTML =
+        "Yayyyy 😍❤️ I Love You Sapana 💐💖 Happy Valentine’s Day! 🥰";
+    }
+
+    function noClick() {
+      document.getElementById("message").innerHTML =
+        "Oh no 😭💔 Please think again Sapana 🙈❤️";
+    }
+  </script>
+</body>
+</html>
